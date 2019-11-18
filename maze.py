@@ -71,14 +71,14 @@ class Maze:
 					self.maze_graph[(x, y)].append(coord)
 				else:
 					continue
-		print(self.maze_graph)
-		pass
+		return(self.maze_graph)
 
 
 	def findRoute(self,x1,y1,x2,y2):
 		start = (x1, y1)
 		end = (x2, y2)
 		explored = []
+		maze_graph = self.createMazeGraph()
 		stack = []                  
 		route = []
 		stack.append(start)                  
@@ -86,7 +86,7 @@ class Maze:
 		while stack:                         
 			current_pos = stack.pop()            
 			route.append(current_pos)
-			for neighbour in self.maze_graph[current_pos]:        
+			for neighbour in maze_graph[current_pos]:        
 				if neighbour not in explored:       
 					explored.append(neighbour)       
 					stack.append(neighbour)         
