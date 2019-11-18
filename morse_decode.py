@@ -45,7 +45,7 @@ def partialMorseDecode(partial_morse_code, dictionary):
                 possible_words.append(word.lower())
             else:
                 continue
-        # recursively refactor the possible_words list for each character in morse code
+        # continuously divide and conquer the possible_words list for each character in morse code
         for i in range(len(m_dict)):
             possible_words = posb_word_update_from_char(i, possible_words, m_dict)
         return(possible_words)
